@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleShift AI | Promptless Photo Editor</title>
+    <meta name="description" content="Advanced AI-inspired photo editor with instant preset transformations, live adjustments, and export tools.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-block">
+                <div class="brand-mark">S</div>
+                <div>
+                    <p class="eyebrow">Creative Studio</p>
+                    <h1>Style<span>Shift</span> AI</h1>
+                </div>
+            </div>
+
+            <section class="card upload-panel">
+                <div class="panel-title-row">
+                    <h2>Upload Photo</h2>
+                </div>
+
+                <div class="drop-zone" id="drop-zone" tabindex="0">
+                    <div class="upload-copy">
+                        <span class="upload-icon">📷</span>
+                        <p id="upload-label">Click or drop an image here</p>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*">
+                </div>
+            </section>
+
+            <section class="card preset-panel">
+                <div class="panel-title-row">
+                    <h2>Preset Library</h2>
+                </div>
+
+                <div class="search-wrap">
+                    <span>⌕</span>
+                    <input id="preset-search" type="text" placeholder="Search styles..." aria-label="Search styles">
+                </div>
+
+                <div id="preset-list" class="preset-list"></div>
+            </section>
+        </aside>
+
+        <main class="workspace">
+            <section class="card topbar">
+                <div class="stat-pill">
+                    <span>Image</span>
+                    <strong id="stat-image">No image</strong>
+                </div>
+                <div class="stat-pill">
+                    <span>Style</span>
+                    <strong id="stat-style">Classic</strong>
+                </div>
+                <div class="stat-pill">
+                    <span>Mode</span>
+                    <strong id="stat-mode">Live</strong>
+                </div>
+            </section>
+
+            <section class="card preview-panel">
+                <div class="panel-title-row">
+                    <h2>Live Preview</h2>
+                    <div class="toolbar">
+                        <button id="reset-filters" class="ghost-btn">Reset</button>
+                        <button id="randomize-preset" class="primary-btn">Surprise Me</button>
+                    </div>
+                </div>
+
+                <div class="compare-stage" id="compare-stage">
+                    <div class="compare-inner" id="compare-inner">
+                        <div class="preview-layer original-layer">
+                            <img id="original-preview" alt="Original photo preview" src="">
+                            <span>Original</span>
+                        </div>
+                        <div class="preview-layer edited-layer" id="edited-layer">
+                            <img id="edited-preview" alt="Edited photo preview" src="">
+                            <span>Edited</span>
+                        </div>
+                    </div>
+
+                    <input id="compare-slider" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+                </div>
+            </section>
+
+            <section class="card controls-panel">
+                <div class="panel-title-row">
+                    <h2>Adjustments</h2>
+                </div>
+
+                <div class="controls-grid">
+                    <label>
+                        <span>Brightness</span>
+                        <input id="brightness" type="range" min="0" max="200" value="100">
+                    </label>
+                    <label>
+                        <span>Contrast</span>
+                        <input id="contrast" type="range" min="0" max="200" value="100">
+                    </label>
+                    <label>
+                        <span>Saturation</span>
+                        <input id="saturation" type="range" min="0" max="220" value="100">
+                    </label>
+                    <label>
+                        <span>Warmth</span>
+                        <input id="warmth" type="range" min="-40" max="40" value="0">
+                    </label>
+                    <label>
+                        <span>Sepia</span>
+                        <input id="sepia" type="range" min="0" max="100" value="0">
+                    </label>
+                    <label>
+                        <span>Grayscale</span>
+                        <input id="grayscale" type="range" min="0" max="100" value="0">
+                    </label>
+                    <label>
+                        <span>Blur</span>
+                        <input id="blur" type="range" min="0" max="8" value="0" step="0.2">
+                    </label>
+                    <label>
+                        <span>Hue</span>
+                        <input id="hue" type="range" min="-180" max="180" value="0">
+                    </label>
+                </div>
+            </section>
+
+            <section class="card results-panel">
+                <div class="panel-title-row">
+                    <h2>Generated Looks</h2>
+                    <button id="download-selected" class="primary-btn">Download</button>
+                </div>
+
+                <div id="demo-grid" class="demo-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
